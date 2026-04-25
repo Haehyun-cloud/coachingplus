@@ -7,84 +7,6 @@
     <meta name="description" content="코칭플러스의 도서 소개 페이지입니다.">
     <meta name="theme-color" content="#3e2c50">
     <link rel="stylesheet" href="./assets/css/main.css">
-    <style>
-        .book-list {
-            max-width: 980px;
-            margin: 40px auto 80px;
-            display: grid;
-            gap: 24px;
-        }
-
-        .book-item {
-            background: var(--bg-surface);
-            border-radius: 10px;
-            padding: 36px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-            display: grid;
-            grid-template-columns: minmax(220px, 280px) 1fr;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .book-cover-link {
-            display: block;
-        }
-
-        .book-cover {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-            display: block;
-        }
-
-        .book-content h2 {
-            font-size: 26px;
-            color: var(--brand-standard);
-            margin-bottom: 12px;
-        }
-
-        .book-subtitle {
-            font-size: 14px;
-            color: var(--text-meta);
-            margin-bottom: 10px;
-        }
-
-        .book-content p {
-            font-size: 16px;
-            color: var(--text-body);
-            line-height: 1.8;
-            margin-bottom: 7px;
-        }
-
-        .book-actions {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .book-actions a {
-            text-decoration: none;
-        }
-
-        .book-actions .btn {
-            padding: 10px 22px;
-            font-size: 14px;
-        }
-
-        @media (max-width: 768px) {
-            .book-item {
-                padding: 28px;
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .book-actions {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- 헤더 & 내비게이션 -->
@@ -100,12 +22,11 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="./about.html">소개</a></li>
+                    <li><a href="./index.html">소개</a></li>
                     <li><a href="./coaching-model.html">코칭 모델</a></li>
                     <li><a href="./programs.html">프로그램</a></li>
                     <li><a href="./special-lecture.html">특강</a></li>
                     <li><a href="./book.html">도서</a></li>
-                    <li><a href="./contact.html">문의</a></li>
                 </ul>
             </nav>
         </div>
@@ -113,111 +34,60 @@
 
     <!-- 메인 콘텐츠 -->
     <main>
-        <div class="page-header">
-            <h1>도서</h1>
-            <p>코칭플러스의 도서를 소개합니다.</p>
-        </div>
+        <section class="book-hero" aria-labelledby="book-page-title">
+            <div class="book-hero-content">
+                <h1 id="book-page-title">도서</h1>
+                <p>Books</p>
+            </div>
+        </section>
 
-        <section class="book-list" aria-label="도서 목록">
-            <article class="book-item">
-                <a class="book-cover-link" href="https://www.yes24.com/product/goods/142873040" aria-label="YES24에서 도서 보기">
-                    <img class="book-cover" src="./assets/images/내일%20전환%20표지.jfif" alt="내일 전환 도서 표지">
-                </a>
-                <div class="book-content">
-                    <h2>내일 전환</h2>
-                    <div class="book-subtitle">전환의 순간을 준비하는 변화 전략</div>
-                    <p>
-                        불확실한 시대에 필요한 것은 변화에 대한 민감성과 혁신적 접근이라는 메시지를 전합니다.
-                        코닥과 후지필름 사례를 통해 전환의 선택이 생존과 성장을 가르는 순간임을 보여주며,
-                        개인에게도 전환을 준비하고 기회를 주도적으로 활용하는 태도를 강조합니다.
-                    </p>
-                    <div class="book-actions">
-                        <a class="btn btn-primary" href="https://www.yes24.com/product/goods/142873040">YES24에서 보기</a>
+        <section class="book-path" aria-label="도서 목록">
+            <article class="book-node">
+                <div class="book-panel">
+                    <a class="book-cover-link" href="https://www.yes24.com/product/goods/187260382" aria-label="YES24에서 이 시대 간호사를 위한 오늘 마음 도서 보기">
+                        <img class="book-cover" src="./assets/images/이%20시대%20간호사를%20위한%20오늘%20마음%20표지.jfif" alt="이 시대 간호사를 위한 오늘 마음 도서 표지">
+                    </a>
+                    <div class="book-content">
+                        <h2>이 시대 간호사를 위한 오늘 마음</h2>
+                        <div class="book-subtitle">버티지 않고 나답게 회복하는 법</div>
+                        <p>
+                            간호 현장에서 반복되는 감정노동과 관계의 어려움, 실수에 대한 자책, 번아웃과 같은 현실적인 고민을 깊이 있게 다룬
+                            실천형 가이드입니다. 감정을 이해하고 건강하게 표현하는 방법부터 갈등을 줄이는 소통법, 회복탄력성을 높이는 훈련, 후회 없는 선택과
+                            지속 가능한 성장까지 심리학적 근거와 현장 경험을 바탕으로 체계적으로 안내합니다.
+                        </p>
+                        <div class="book-tags" aria-label="주요 키워드">
+                            <span>감정 이해</span>
+                            <span>회복탄력성</span>
+                            <span>소통</span>
+                        </div>
+                        <div class="book-actions">
+                            <a class="btn btn-primary" href="https://www.yes24.com/product/goods/187260382">YES24에서 보기</a>
+                        </div>
                     </div>
                 </div>
             </article>
 
-            <article class="book-item">
-                <a class="book-cover-link" href="https://www.yes24.com" aria-label="YES24에서 도서 보기">
-                    <img class="book-cover" src="./assets/images/book-cover-placeholder.svg" alt="도서 2 표지">
-                </a>
-                <div class="book-content">
-                    <h2>리더십 코칭 실무</h2>
-                    <div class="book-subtitle">부제 또는 시리즈 설명을 입력하세요.</div>
-                    <p>
-                        현장에서 바로 적용할 수 있는 리더십 코칭의 핵심을 정리한 도서입니다.
-                        조직 내 의사결정과 소통 흐름을 구조적으로 정리합니다.
-                    </p>
-                    <div class="book-actions">
-                        <a class="btn btn-primary" href="https://www.yes24.com">YES24에서 보기</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="book-item">
-                <a class="book-cover-link" href="https://www.yes24.com" aria-label="YES24에서 도서 보기">
-                    <img class="book-cover" src="./assets/images/book-cover-placeholder.svg" alt="도서 3 표지">
-                </a>
-                <div class="book-content">
-                    <h2>팀워크를 만드는 대화</h2>
-                    <div class="book-subtitle">부제 또는 시리즈 설명을 입력하세요.</div>
-                    <p>
-                        협업 규칙과 팀워크 기준을 정리하는 실무 중심의 코칭 가이드입니다.
-                        팀 내 공감과 실행을 높이는 대화 구조를 담았습니다.
-                    </p>
-                    <div class="book-actions">
-                        <a class="btn btn-primary" href="https://www.yes24.com">YES24에서 보기</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="book-item">
-                <a class="book-cover-link" href="https://www.yes24.com" aria-label="YES24에서 도서 보기">
-                    <img class="book-cover" src="./assets/images/book-cover-placeholder.svg" alt="도서 4 표지">
-                </a>
-                <div class="book-content">
-                    <h2>현장형 코칭 워크북</h2>
-                    <div class="book-subtitle">부제 또는 시리즈 설명을 입력하세요.</div>
-                    <p>
-                        짧은 워크숍을 위한 실습 과제를 묶은 워크북 형태의 도서입니다.
-                        코칭 질문과 적용 과제를 체계적으로 제시합니다.
-                    </p>
-                    <div class="book-actions">
-                        <a class="btn btn-primary" href="https://www.yes24.com">YES24에서 보기</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="book-item">
-                <a class="book-cover-link" href="https://www.yes24.com" aria-label="YES24에서 도서 보기">
-                    <img class="book-cover" src="./assets/images/book-cover-placeholder.svg" alt="도서 5 표지">
-                </a>
-                <div class="book-content">
-                    <h2>조직 실행의 기준</h2>
-                    <div class="book-subtitle">부제 또는 시리즈 설명을 입력하세요.</div>
-                    <p>
-                        조직 내 실행력을 높이기 위한 기준과 흐름을 정리한 실무형 가이드입니다.
-                        문제 정의부터 적용까지의 과정을 단계별로 제시합니다.
-                    </p>
-                    <div class="book-actions">
-                        <a class="btn btn-primary" href="https://www.yes24.com">YES24에서 보기</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="book-item">
-                <a class="book-cover-link" href="https://www.yes24.com" aria-label="YES24에서 도서 보기">
-                    <img class="book-cover" src="./assets/images/book-cover-placeholder.svg" alt="도서 6 표지">
-                </a>
-                <div class="book-content">
-                    <h2>팀 코칭 플레이북</h2>
-                    <div class="book-subtitle">부제 또는 시리즈 설명을 입력하세요.</div>
-                    <p>
-                        팀 코칭을 빠르게 적용할 수 있도록 정리한 플레이북입니다.
-                        팀의 대화와 실행을 연결하는 실전 포인트를 정리했습니다.
-                    </p>
-                    <div class="book-actions">
-                        <a class="btn btn-primary" href="https://www.yes24.com">YES24에서 보기</a>
+            <article class="book-node">
+                <div class="book-panel">
+                    <a class="book-cover-link" href="https://www.yes24.com/product/goods/142873040" aria-label="YES24에서 내일 전환 도서 보기">
+                        <img class="book-cover" src="./assets/images/내일%20전환%20표지.jfif" alt="내일 전환 도서 표지">
+                    </a>
+                    <div class="book-content">
+                        <h2>내일 전환</h2>
+                        <div class="book-subtitle">전환의 순간을 준비하는 변화 전략</div>
+                        <p>
+                            불확실한 시대에 필요한 것은 변화에 대한 민감성과 혁신적 접근이라는 메시지를 전합니다.
+                            코닥과 후지필름 사례를 통해 전환의 선택이 생존과 성장을 가르는 순간임을 보여주며,
+                            개인에게도 전환을 준비하고 기회를 주도적으로 활용하는 태도를 강조합니다.
+                        </p>
+                        <div class="book-tags" aria-label="주요 키워드">
+                            <span>변화 전략</span>
+                            <span>전환</span>
+                            <span>혁신</span>
+                        </div>
+                        <div class="book-actions">
+                            <a class="btn btn-primary" href="https://www.yes24.com/product/goods/142873040">YES24에서 보기</a>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -228,21 +98,30 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>연락처</h3>
-                <p>전화: 02-1234-5678<br>이메일: info@coachingplus.kr</p>
+                <h3>문의</h3>
+                <p>이메일: discplus2010@naver.com</p>
             </div>
 
             <div class="footer-section">
                 <h3>사업자정보</h3>
-                <p>사업자등록번호: 123-45-67890<br>대표: 김코칭<br>통신판매신고: 2026-서울강남-0123</p>
+                <p>사업자등록번호: 215-17-91815<br>대표: 정일진<br>통신판매업 신고: 2024-서울관악-0184</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 코칭플러스. All rights reserved.</p>
+            <p>&copy; 코칭플러스. All rights reserved.</p>
         </div>
     </footer>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
