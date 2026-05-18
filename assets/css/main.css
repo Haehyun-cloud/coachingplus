@@ -1494,6 +1494,14 @@ a.course-tag:hover {
     font-weight: 600;
 }
 
+.coach-card .coach-name {
+    color: var(--brand-standard);
+}
+
+.coach-card .coach-role {
+    color: var(--text-black);
+}
+
 .coach-bio {
     font-size: 1.22rem;
     color: var(--text-body);
@@ -2179,11 +2187,18 @@ a.course-tag:hover {
 }
 
 .prog-panel .info-label {
-    font-size: 1.02rem;
+    font-size: 1.12rem;
+    width: 128px;
+    padding: 1rem 1.35rem;
+    color: var(--text-black);
+    font-weight: 700;
 }
 
 .prog-panel .info-value {
-    font-size: 1.08rem;
+    font-size: 1.16rem;
+    padding: 1rem 1.45rem;
+    font-weight: 400;
+    color: var(--text-body);
 }
 
 .prog-panel .session-num {
@@ -2204,6 +2219,10 @@ a.course-tag:hover {
 
 .prog-panel .stag {
     font-size: 0.96rem;
+}
+
+.prog-panel .session-tags {
+    display: none;
 }
 
 .prog-panel .section-title {
@@ -2302,7 +2321,7 @@ a.course-tag:hover {
 }
 
 .prog-section {
-    margin-bottom: 2rem;
+    margin-bottom: 2.6rem;
 }
 
 .target-list {
@@ -2348,12 +2367,12 @@ a.course-tag:hover {
 .feat-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1px;
+    gap: 2px;
     margin-top: 0.75rem;
     overflow: hidden;
-    border: 0.5px solid var(--border-light);
+    border: 2px solid var(--program-accent-border, var(--border-light));
     border-radius: 8px;
-    background: var(--border-light);
+    background: var(--program-accent-border, var(--border-light));
 }
 
 .feat-item {
@@ -2363,7 +2382,7 @@ a.course-tag:hover {
 
 .feat-title {
     margin-bottom: 4px;
-    color: var(--text-black);
+    color: var(--program-accent-text, var(--text-black));
     font-size: 1.2rem;
     font-weight: 500;
 }
@@ -2381,6 +2400,22 @@ a.course-tag:hover {
 
 .prog-panel .model-card {
     padding: 1rem 0;
+}
+
+.prog-panel .model-name-wrap {
+    display: block;
+}
+
+.prog-panel .model-kr,
+.prog-panel .model-en {
+    display: inline;
+}
+
+.prog-panel .model-en {
+    margin-left: 0.35rem;
+    color: var(--text-body);
+    font-size: 1.08rem;
+    font-weight: 400;
 }
 
 .prog-panel .model-role-tag {
@@ -2496,17 +2531,17 @@ a.course-tag:hover {
 }
 
 .prog-tab-btn[data-panel="discplus"] {
-    background: #F4FCF9;
+    background: var(--bg-surface);
     border-color: #9FE1CB;
 }
 
 .prog-tab-btn[data-panel="nursing"] {
-    background: #F5FAFE;
+    background: var(--bg-surface);
     border-color: #B5D4F4;
 }
 
 .prog-tab-btn[data-panel="coaching"] {
-    background: #F7F6FF;
+    background: var(--bg-surface);
     border-color: #CECBF6;
 }
 
@@ -2555,6 +2590,14 @@ a.course-tag:hover {
     border-color: #AFA9EC;
 }
 
+.prog-tab-btn .tab-title {
+    font-size: 1.28rem;
+}
+
+.prog-tab-btn .tab-sub {
+    font-size: 1.03rem;
+}
+
 .prog-panel.active .prog-inner {
     padding-top: 0;
 }
@@ -2584,7 +2627,7 @@ a.course-tag:hover {
 }
 
 .top-panel-head {
-    padding: 1.8rem 1.8rem 1.35rem;
+    padding: 1.65rem 1.8rem;
     background: var(--program-accent-bg);
     border-bottom: 1px solid var(--program-accent-border);
 }
@@ -2662,6 +2705,44 @@ a.course-tag:hover {
     margin-bottom: 0;
 }
 
+.prog-panel .sub-detail > .prog-hero {
+    padding: 0;
+    background: var(--bg-surface);
+    color: var(--text-black);
+    overflow: hidden;
+}
+
+.prog-panel .sub-detail > .prog-hero h2 {
+    margin: 0;
+    padding: 1.65rem 1.8rem;
+    background: var(--program-accent-bg);
+    border-bottom: 1px solid var(--program-accent-border);
+    color: var(--program-accent-text);
+}
+
+.prog-panel .sub-detail > .prog-hero p {
+    margin: 0;
+    padding: 1.35rem 1.8rem 0;
+    color: var(--text-black);
+    opacity: 1;
+}
+
+.prog-panel .sub-detail > .prog-hero .prog-meta {
+    margin: 0;
+    padding: 1rem 1.8rem 1.45rem;
+}
+
+.prog-panel .sub-detail > .prog-hero .meta-pill {
+    background: var(--program-accent-soft);
+    border: 1px solid var(--program-accent-border);
+    color: var(--program-accent-text);
+}
+
+.prog-panel .sub-detail > .prog-hero + .target-section,
+.prog-panel .prog-summary + .target-section {
+    margin-top: 2.4rem;
+}
+
 .prog-panel .sub-prog-selector {
     gap: 12px;
     align-items: stretch;
@@ -2672,7 +2753,7 @@ a.course-tag:hover {
     position: relative;
     border: 2px solid var(--program-accent-border);
     border-radius: 10px;
-    background: var(--program-accent-soft);
+    background: var(--bg-surface);
     box-shadow: none;
     overflow: hidden;
 }
@@ -2712,6 +2793,34 @@ a.course-tag:hover {
 
 .prog-panel .sub-card.active .sub-desc {
     color: var(--text-black);
+}
+
+.prog-panel .sub-badge {
+    font-size: 0.98rem;
+}
+
+.prog-panel .sub-title {
+    font-size: 1.22rem;
+}
+
+.prog-panel .sub-desc {
+    font-size: 1.05rem;
+}
+
+.prog-panel .section-label {
+    color: #c93667;
+}
+
+.prog-panel .section-title {
+    color: var(--brand-standard);
+}
+
+.prog-panel .course-info {
+    margin-bottom: 2.6rem;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
 }
 
 .prog-panel .sub-detail.active > .prog-hero:first-child {
@@ -2758,7 +2867,7 @@ a.course-tag:hover {
     }
 
     .top-panel-head {
-        padding: 1.35rem 1.25rem 1.1rem;
+        padding: 1.25rem;
     }
 
     .top-panel-body {
