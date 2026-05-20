@@ -2,10 +2,10 @@
 
 :root {
     color-scheme: light;
-    --brand-dark: #332444;
-    --brand-standard: #3e2c50;
-    --brand-bright: #4b3765;
-    --brand-border: #46375e;
+    --brand-dark: #49365c;
+    --brand-standard: #59436f;
+    --brand-bright: #6a5280;
+    --brand-border: #6d5a7f;
     --text-black: #333333;
     --text-dark: #2c3e50;
     --text-body: #555555;
@@ -1337,16 +1337,16 @@ a.course-tag:hover {
 
 /* Index page */
 .home-focus {
-    padding-bottom: 76px;
+    padding: 4rem 2rem;
 }
 
 .about-section {
     background: var(--bg-page);
-    padding: 0 2rem 3.8rem;
+    padding: 4rem 2rem;
 }
 
 .about-section--surface {
-    padding-top: 4.6rem;
+    padding-top: 4rem;
 }
 
 .about-section--approach {
@@ -1368,8 +1368,8 @@ a.course-tag:hover {
 }
 
 .about-section + .about-section .inner {
-    padding-top: 3rem;
-    border-top: 1px solid var(--border-light);
+    padding-top: 0;
+    border-top: none;
 }
 
 .about-label {
@@ -1510,50 +1510,201 @@ a.course-tag:hover {
 
 .home-page-link-intro {
     color: var(--brand-standard);
-    font-size: 1.42rem;
+    font-size: 1.95rem;
     font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 1.6rem;
 }
 
 .home-page-link {
     min-height: 112px;
 }
 
+.home-focus h2 {
+    color: var(--brand-standard);
+    font-size: 1.95rem;
+    line-height: 1.35;
+    margin-bottom: 1.9rem;
+}
+
+.focus-card {
+    background: var(--focus-bg);
+    border: 2px solid var(--focus-border);
+    color: var(--focus-color);
+}
+
+.focus-card-content {
+    gap: 18px;
+}
+
+.focus-card-left {
+    width: auto;
+    flex: 0 0 34%;
+}
+
+.focus-card-bg {
+    display: block;
+    filter: saturate(1.03) contrast(0.98);
+    opacity: 1;
+}
+
+.focus-card-overlay {
+    display: none;
+}
+
+.focus-card-left h3,
+.focus-card-left p,
+.focus-card-right {
+    color: inherit;
+    text-shadow: none;
+}
+
+.focus-card-left h3 {
+    font-size: 1.9rem;
+}
+
+.focus-card-left p {
+    font-size: 1.18rem;
+    opacity: 0.9;
+}
+
+.focus-card-divider {
+    display: none;
+}
+
+.focus-card-right {
+    width: auto;
+    flex: 1;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+.focus-card:hover .focus-card-overlay,
+.focus-card:focus-within .focus-card-overlay {
+    opacity: 1;
+}
+
+.focus-card-perspectives {
+    --focus-bg: #354B47;
+    --focus-border: #687D78;
+    --focus-color: var(--text-white);
+}
+
+.focus-card-process {
+    --focus-bg: #3A4A5B;
+    --focus-border: #6D7D8E;
+    --focus-color: var(--text-white);
+}
+
+.focus-card-concept {
+    --focus-bg: #46415D;
+    --focus-border: #79748F;
+    --focus-color: var(--text-white);
+}
+
+.focus-card-intervention {
+    --focus-bg: #5B444C;
+    --focus-border: #8D7880;
+    --focus-color: var(--text-white);
+}
+
 .home-page-link-desc {
-    font-size: 20px;
+    font-size: 22px;
+}
+
+.home-page-links {
+    margin: 0;
+    padding: 4rem 2rem;
+}
+
+.home-page-link {
+    color: var(--home-link-color);
+    border: 2px solid var(--home-link-border);
+    background-color: var(--home-link-bg);
+    background-blend-mode: normal;
+}
+
+.home-page-link-title,
+.home-page-link-desc {
+    color: inherit;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+}
+
+.home-page-link-desc {
+    opacity: 0.86;
 }
 
 .home-page-link-model {
-    background-image: linear-gradient(120deg, rgba(79, 91, 111, 0.72) 0%, rgba(70, 83, 102, 0.62) 56%, rgba(64, 76, 94, 0.56) 100%), url('../images/link-model-temp.svg');
+    --home-link-bg: #354B47;
+    --home-link-color: var(--text-white);
+    --home-link-border: #687D78;
+    background-image: url('../images/link-model-temp.svg');
 }
 
 .home-page-link-programs {
-    background-image: linear-gradient(120deg, rgba(84, 108, 103, 0.72) 0%, rgba(76, 98, 94, 0.62) 54%, rgba(70, 90, 88, 0.56) 100%), url('../images/link-programs-temp.svg');
+    --home-link-bg: #3A4A5B;
+    --home-link-color: var(--text-white);
+    --home-link-border: #6D7D8E;
+    background-image: url('../images/link-programs-temp.svg');
 }
 
 .home-page-link-lecture {
-    background-image: linear-gradient(120deg, rgba(111, 98, 117, 0.72) 0%, rgba(99, 88, 108, 0.62) 56%, rgba(91, 82, 101, 0.56) 100%), url('../images/link-lecture-temp.svg');
+    --home-link-bg: #46415D;
+    --home-link-color: var(--text-white);
+    --home-link-border: #79748F;
+    background-image: url('../images/link-lecture-temp.svg');
 }
 
 .home-page-link-book {
-    background-image: linear-gradient(120deg, rgba(116, 106, 92, 0.72) 0%, rgba(105, 95, 83, 0.62) 56%, rgba(96, 87, 76, 0.56) 100%), url('../images/link-book-temp.svg');
+    --home-link-bg: #5B444C;
+    --home-link-color: var(--text-white);
+    --home-link-border: #8D7880;
+    background-image: url('../images/link-book-temp.svg');
 }
 
 @media (max-width: 768px) {
-    .about-section {
+    .about-section,
+    .home-focus,
+    .home-page-links {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
 
-    .about-title {
-        font-size: 1.48rem;
+    .about-title,
+    .home-focus h2,
+    .home-page-link-intro {
+        font-size: 1.55rem;
     }
 
     .coach-card {
         flex-direction: column;
     }
 
+    .focus-card-content {
+        gap: 10px;
+        padding: 0.8rem;
+    }
+
+    .focus-card-left {
+        flex-basis: 36%;
+    }
+
+    .focus-card-left h3 {
+        font-size: 1.38rem;
+    }
+
+    .focus-card-left p {
+        font-size: 0.94rem;
+    }
+
+    .focus-card-right {
+        font-size: 1.1rem;
+    }
+
     .home-page-link-desc {
-        font-size: 17px;
+        font-size: 18px;
     }
 }
 
@@ -2255,7 +2406,7 @@ a.course-tag:hover {
 
 .prog-panel .sub-card:hover {
     background: #EEEDFE;
-    border-color: #3e2c50;
+    border-color: var(--brand-standard);
 }
 
 .prog-panel .sub-card.active {
@@ -2282,7 +2433,7 @@ a.course-tag:hover {
 }
 
 .prog-panel .sub-card:hover .sub-badge {
-    color: #3e2c50;
+    color: var(--brand-standard);
 }
 
 .prog-panel .sub-title {

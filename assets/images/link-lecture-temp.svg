@@ -6,14 +6,14 @@
       <stop offset="100%" stop-color="#746b82"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="360" fill="url(#bg)"/>
-  <g fill="#f7f3fb" fill-opacity="0.3">
+  <rect width="1200" height="360" fill="none"/>
+  <g fill="#ffffff" fill-opacity="0.11">
     <rect x="150" y="104" width="170" height="214" rx="12"/>
     <rect x="374" y="70" width="220" height="248" rx="12"/>
     <rect x="650" y="120" width="170" height="198" rx="12"/>
     <rect x="874" y="92" width="176" height="226" rx="12"/>
   </g>
-  <g fill="#fdf9ff" fill-opacity="0.7">
+  <g fill="#ffffff" fill-opacity="0.25">
     <rect x="186" y="138" width="24" height="24" rx="4"/>
     <rect x="238" y="138" width="24" height="24" rx="4"/>
     <rect x="186" y="194" width="24" height="24" rx="4"/>
@@ -27,7 +27,7 @@
     <rect x="920" y="132" width="26" height="26" rx="4"/>
     <rect x="980" y="132" width="26" height="26" rx="4"/>
   </g>
-  <g fill="#fdf9ff" fill-opacity="0.42">
+  <g fill="#ffffff" fill-opacity="0.16">
     <rect x="118" y="318" width="986" height="18" rx="9"/>
   </g>
 </svg>

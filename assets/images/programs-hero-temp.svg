@@ -9,7 +9,6 @@
   <rect width="1600" height="520" fill="url(#bg)"/>
   <g fill="none" stroke="#ffffff" stroke-opacity="0.13" stroke-width="2">
     <path d="M110 118 H1490"/>
-    <path d="M110 260 H1490"/>
     <path d="M110 402 H1490"/>
   </g>
   <g fill="#ffffff" fill-opacity="0.13">
