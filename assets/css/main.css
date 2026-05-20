@@ -343,7 +343,7 @@ footer {
 .home-hero-content {
     position: relative;
     z-index: 2;
-    max-width: 920px;
+    max-width: 1040px;
     margin: 0 auto;
 }
 
@@ -698,7 +698,7 @@ footer {
 }
 
 .flow-desc-main {
-    max-width: 820px;
+    max-width: 1040px;
     margin-top: 1.35rem;
     font-size: 1.24rem;
     color: var(--text-body);
@@ -998,7 +998,7 @@ a.course-tag:hover {
 }
 
 .cta-inner {
-    max-width: 600px;
+    max-width: 1040px;
     margin: 0 auto;
 }
 
@@ -1073,7 +1073,7 @@ a.course-tag:hover {
 }
 /* Programs page */
 .programs-intro {
-    max-width: 800px;
+    max-width: 1040px;
     margin: 40px auto 30px;
     color: var(--text-body);
     font-size: 16px;
@@ -1081,7 +1081,7 @@ a.course-tag:hover {
 }
 
 .programs-accordion {
-    max-width: 900px;
+    max-width: 1040px;
     margin: 0 auto 80px;
     display: grid;
     gap: 16px;
@@ -2195,7 +2195,7 @@ a.course-tag:hover {
         .session-item {
             display: flex;
             gap: 12px;
-            padding: 1rem 0;
+            padding: 1.25rem 0;
             border-bottom: 1px solid var(--border-light);
         }
 
@@ -2362,6 +2362,11 @@ a.course-tag:hover {
 
 .prog-panel .session-title {
     font-size: 1.2rem;
+}
+
+.prog-panel .session-item {
+    padding-top: 1.45rem;
+    padding-bottom: 1.45rem;
 }
 
 .prog-panel .session-desc {
@@ -2871,6 +2876,11 @@ a.course-tag:hover {
     color: var(--program-accent-text);
 }
 
+.prog-panel .sub-detail > .prog-hero h2 .title-en {
+    margin-left: 0.5rem;
+    font-weight: 400;
+}
+
 .prog-panel .sub-detail > .prog-hero p {
     margin: 0;
     padding: 1.35rem 1.8rem 0;
@@ -2966,6 +2976,12 @@ a.course-tag:hover {
     color: var(--brand-standard);
 }
 
+.prog-panel .target-title,
+.prog-panel .feat-title,
+.prog-panel .session-title {
+    color: var(--brand-standard);
+}
+
 .prog-panel .course-info {
     margin-bottom: 2.6rem;
     padding: 0;
@@ -3038,6 +3054,88 @@ a.course-tag:hover {
 
     .prog-panel .sub-card:last-child {
         border-radius: 10px;
+    }
+}
+
+/* Page body width alignment */
+.home-focus,
+.about-section,
+.home-page-links,
+.prog-tabs-section,
+.prog-panel,
+.book-path {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.home-focus-grid,
+.home-page-link-intro,
+.home-page-link-grid,
+.about-section .inner,
+.flow-section,
+.flow-desc-main,
+.stage-section,
+.cta-inner,
+.programs-intro,
+.programs-accordion,
+.prog-tabs,
+.prog-inner,
+.book-node {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.stage-section + .stage-section {
+    margin-top: 2rem;
+}
+
+.book-panel {
+    grid-template-columns: minmax(220px, 300px) 1fr;
+    gap: 36px;
+    padding: 32px;
+}
+
+.book-cover-link {
+    max-width: 300px;
+}
+
+.book-content h2 {
+    font-size: 2rem;
+}
+
+.book-subtitle {
+    font-size: 1.15rem;
+}
+
+.book-content p {
+    font-size: 1.12rem;
+}
+
+.book-tags span {
+    font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+    .book-path {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section,
+    .home-focus,
+    .home-page-links {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .flow-section,
+    .stage-section {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
