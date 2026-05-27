@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의 - 코칭플러스</title>
+    <meta name="description" content="코칭플러스 프로그램·특강·코칭 문의 페이지입니다.">
+    <meta name="theme-color" content="#59436f">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <style>
+        /* 히어로 */
+        .inquiry-hero {
+            background: var(--brand-dark);
+            background-image: linear-gradient(
+                120deg,
+                rgba(51, 36, 68, 0.72),
+                rgba(47, 34, 71, 0.5)
+            ), url('./assets/images/apply-hero-temp.svg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin: 40px 0 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inquiry-hero-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .inquiry-hero-title {
+            font-size: 2.7rem;
+            font-weight: 700;
+            color: var(--text-white);
+            line-height: 1.35;
+        }
+
+        .inquiry-hero-sub {
+            margin-top: 6px;
+            font-size: 1.25rem;
+            color: var(--text-white);
+            letter-spacing: 0.04em;
+        }
+
+        /* 폼 섹션 */
+        .inquiry-section {
+            padding: 3.2rem 2rem 5rem;
+            background: var(--bg-page);
+        }
+
+        .inquiry-inner {
+            width: 100%;
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        .inquiry-desc {
+            max-width: 760px;
+            font-size: 1.18rem;
+            color: var(--text-body);
+            line-height: 1.8;
+            margin-bottom: 2.3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* 필드 */
+        .field {
+            margin-bottom: 1.25rem;
+        }
+
+        .field-label {
+            display: flex;
+            gap: 4px;
+            font-size: 1.08rem;
+            font-weight: 500;
+            color: var(--brand-standard);
+            margin-bottom: 8px;
+        }
+
+        .req {
+            color: #c93667;
+        }
+
+        .field input,
+        .field textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 8px;
+            font-size: 1.08rem;
+            border: 1.5px solid var(--border-light);
+            background: var(--bg-surface);
+            color: var(--text-dark);
+            font-family: inherit;
+            transition: border-color 0.15s;
+            outline: none;
+        }
+
+        .field input:focus,
+        .field textarea:focus {
+            border-color: var(--brand-standard);
+        }
+
+        .field.field-error input::placeholder,
+        .field.field-error textarea::placeholder {
+            color: #d93025;
+            opacity: 1;
+        }
+
+        .field textarea {
+            resize: none;
+            line-height: 1.7;
+            min-height: 150px;
+            overflow-y: auto;
+        }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        /* 제출 버튼 */
+        .inquiry-submit {
+            width: 100%;
+            padding: 16px;
+            margin-top: 0.75rem;
+            border-radius: 8px;
+            font-size: 1.08rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            background: var(--brand-standard);
+            color: var(--text-white);
+            transition: opacity 0.15s;
+            font-family: inherit;
+        }
+
+        .inquiry-submit:hover {
+            opacity: 0.88;
+        }
+
+        .inquiry-submit:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* 완료 메시지 */
+        .inquiry-done {
+            display: none;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .done-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--brand-standard);
+            margin-bottom: 10px;
+        }
+
+        .done-desc {
+            font-size: 1.1rem;
+            color: var(--text-body);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .done-desc a {
+            color: #c93667;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            background: var(--bg-soft);
+            color: var(--text-dark);
+            border: 1.5px solid var(--border-light);
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .btn-home:hover {
+            border-color: var(--brand-standard);
+            color: var(--brand-standard);
+        }
+
+        /* 반응형 */
+        @media (max-width: 600px) {
+            .field-row {
+                grid-template-columns: 1fr;
+            }
+
+            .inquiry-hero-title {
+                font-size: 2rem;
+            }
+
+            .inquiry-hero-sub {
+                font-size: 1.05rem;
+            }
+
+            .inquiry-section {
+                padding: 2.2rem 1rem 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 & 내비게이션 -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>
+                    <a href="./index.html">
+                        <img class="logo-main" src="./assets/images/logo-main.png" alt="CoachingPLUS 코칭플러스 로고">
+                        <img class="logo-symbol" src="./assets/images/logo-symbol.png" alt="CoachingPLUS 코칭플러스 로고">
+                    </a>
+                </h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">소개</a></li>
+                    <li><a href="./coaching-model.html">코칭 모델</a></li>
+                    <li><a href="./programs.html">프로그램</a></li>
+                    <li><a href="./special-lecture.html">특강</a></li>
+                    <li><a href="./book.html">도서</a></li>
+                    <li><a href="./inquiry.html" class="active">문의</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="inquiry-hero">
+            <div class="inquiry-hero-inner">
+                <h1 class="inquiry-hero-title">문의</h1>
+                <p class="inquiry-hero-sub">Inquiry</p>
+            </div>
+        </section>
+
+        <section class="inquiry-section">
+            <div class="inquiry-inner">
+                <p class="inquiry-desc">
+                    프로그램·특강·개인 코칭 신청 및 커스터마이징 상담은
+                    아래 양식으로 접수해 주세요.<br>
+                    1~2 영업일 내에 연락드립니다.
+                </p>
+
+                <form class="inquiry-form" id="inquiry-form" novalidate>
+                    <!-- honeypot -->
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <div class="field-row">
+                        <div class="field">
+                            <label class="field-label" for="f-name">
+                                성함 <span class="req">*</span>
+                            </label>
+                            <input type="text" id="f-name" name="name" placeholder="홍길동" autocomplete="name" required>
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="f-org">
+                                소속 기관 · 직함
+                            </label>
+                            <input type="text" id="f-org" name="org" placeholder="○○병원 수간호사">
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field">
+                            <label class="field-label" for="f-email">
+                                이메일 주소 <span class="req">*</span>
+                            </label>
+                            <input type="email" id="f-email" name="email" placeholder="example@email.com" autocomplete="email" required>
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="f-tel">
+                                휴대전화 번호 <span class="req">*</span>
+                            </label>
+                            <input type="tel" id="f-tel" name="tel" placeholder="010-0000-0000" autocomplete="tel" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field-label" for="f-memo">
+                            문의 내용 <span class="req">*</span>
+                        </label>
+                        <textarea id="f-memo" name="memo" rows="5" placeholder="문의하실 내용을 자유롭게 적어 주세요.&#10;예) 프로그램 일정, 특강 비용, 기관 맞춤 상담 등" required></textarea>
+                    </div>
+
+                    <button class="inquiry-submit" type="submit" id="btn-submit">
+                        문의하기
+                    </button>
+
+                    <div class="inquiry-done" id="inquiry-done">
+                        <p class="done-title">문의가 접수되었습니다</p>
+                        <p class="done-desc">
+                            1~2 영업일 내에 입력하신 연락처로 안내드립니다.<br>
+                            빠른 문의는
+                            <a href="mailto:discplus2010@naver.com">discplus2010@naver.com</a>
+                            으로 연락해 주세요.
+                        </p>
+                        <a class="btn-home" href="./index.html">← 홈으로 돌아가기</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>문의</h3>
+                <p>이메일: discplus2010@naver.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>사업자정보</h3>
+                <p>사업자등록번호: 215-17-91815<br>대표: 정일진<br>통신판매업 신고: 2024-서울관악-0184</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 코칭플러스. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3cUJj5rzRL9-TvvabUcMn1iTfZDaGGkezzaFZ0rqMraCb8iWMyb4QVS8fXqHz-5lpTQ/exec';
+
+            const form = document.getElementById('inquiry-form');
+            const btn = document.getElementById('btn-submit');
+            const doneBox = document.getElementById('inquiry-done');
+            const requiredFields = [
+                { id: 'f-name', label: '성함', requiredText: '성함은 필수 항목입니다.', placeholder: '홍길동' },
+                {
+                    id: 'f-email',
+                    label: '이메일 주소',
+                    requiredText: '이메일 주소는 필수 항목입니다.',
+                    invalidText: '이메일 주소 형식이 올바르지 않습니다.',
+                    placeholder: 'example@email.com',
+                    validate: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+                },
+                {
+                    id: 'f-tel',
+                    label: '휴대전화 번호',
+                    requiredText: '휴대전화 번호는 필수 항목입니다.',
+                    invalidText: '휴대전화 번호는 숫자와 -만 입력 가능합니다.',
+                    placeholder: '010-0000-0000',
+                    validate: value => /^[0-9-]+$/.test(value)
+                },
+                {
+                    id: 'f-memo',
+                    label: '문의 내용',
+                    requiredText: '문의 내용은 필수 항목입니다.',
+                    placeholder: '문의하실 내용을 자유롭게 적어 주세요.\n예) 프로그램 일정, 특강 비용, 기관 맞춤 상담 등'
+                }
+            ];
+
+            function markRequiredErrors() {
+                const missing = [];
+                const invalid = [];
+
+                requiredFields.forEach((field) => {
+                    const input = document.getElementById(field.id);
+                    const fieldWrap = input.closest('.field');
+                    const value = input.value.trim();
+
+                    if (!value) {
+                        missing.push(field.label);
+                        fieldWrap.classList.add('field-error');
+                        input.placeholder = field.requiredText;
+                    } else if (field.validate && !field.validate(value)) {
+                        invalid.push(field);
+                        fieldWrap.classList.add('field-error');
+                        input.value = '';
+                        input.placeholder = field.invalidText;
+                    } else {
+                        fieldWrap.classList.remove('field-error');
+                        input.placeholder = field.placeholder;
+                    }
+                });
+
+                return { missing, invalid };
+            }
+
+            requiredFields.forEach((field) => {
+                const input = document.getElementById(field.id);
+                input.addEventListener('input', () => {
+                    if (input.value.trim()) {
+                        input.closest('.field').classList.remove('field-error');
+                        input.placeholder = field.placeholder;
+                    }
+                });
+            });
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                if (form._honey.value) return;
+
+                const { missing, invalid } = markRequiredErrors();
+                if (missing.length > 0) {
+                    const firstMissing = requiredFields.find(field => !document.getElementById(field.id).value.trim());
+                    document.getElementById(firstMissing.id).focus();
+                    return;
+                }
+
+                if (invalid.length > 0) {
+                    document.getElementById(invalid[0].id).focus();
+                    return;
+                }
+
+                const name = document.getElementById('f-name').value.trim();
+                const email = document.getElementById('f-email').value.trim();
+                const tel = document.getElementById('f-tel').value.trim();
+                const memo = document.getElementById('f-memo').value.trim();
+
+                btn.disabled = true;
+                btn.textContent = '전송 중...';
+
+                const payload = {
+                    name,
+                    org: document.getElementById('f-org').value.trim(),
+                    email,
+                    tel,
+                    memo,
+                    type: '문의',
+                    selection: '',
+                    coachingDetail: ''
+                };
+
+                try {
+                    await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                } catch (e) {
+                    console.warn('전송 오류:', e);
+                }
+
+                document.querySelector('.inquiry-desc').style.display = 'none';
+                form.querySelectorAll('.field, .field-row, #btn-submit').forEach(el => {
+                    el.style.display = 'none';
+                });
+                doneBox.style.display = 'block';
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
+</body>
+</html>

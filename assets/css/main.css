@@ -453,9 +453,10 @@ footer {
 
 .home-page-link:hover,
 .home-page-link:focus-visible {
-    transform: translateY(-1px);
+    transform: none;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
-    filter: brightness(1.04);
+    filter: none;
+    z-index: 1;
 }
 
 .home-focus-grid {
@@ -1450,8 +1451,8 @@ a.course-tag:hover {
 .coach-list {
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
-    margin-top: 1.1rem;
+    gap: 2.7rem;
+    margin-top: 2.1rem;
 }
 
 .coach-card {
@@ -1462,8 +1463,8 @@ a.course-tag:hover {
 }
 
 .coach-img {
-    width: 96px;
-    height: 96px;
+    width: 108px;
+    height: 108px;
     border-radius: 50%;
     background: var(--bg-soft);
     background-size: cover;
@@ -1534,12 +1535,15 @@ a.course-tag:hover {
 }
 
 .focus-card-content {
-    gap: 18px;
+    gap: 26px;
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
 }
 
 .focus-card-left {
     width: auto;
-    flex: 0 0 34%;
+    flex: 0 0 43%;
+    padding-left: 0.45rem;
 }
 
 .focus-card-bg {
@@ -1662,6 +1666,13 @@ a.course-tag:hover {
     background-image: url('../images/link-book-temp.svg');
 }
 
+.home-page-link-apply {
+    --home-link-bg: #493F54;
+    --home-link-color: var(--text-white);
+    --home-link-border: #7B7085;
+    background-image: url('../images/apply-hero-temp.svg');
+}
+
 @media (max-width: 768px) {
     .about-section,
     .home-focus,
@@ -1689,6 +1700,7 @@ a.course-tag:hover {
 
     .focus-card-left {
         flex-basis: 36%;
+        padding-left: 0;
     }
 
     .focus-card-left h3 {
@@ -3064,8 +3076,8 @@ a.course-tag:hover {
 .prog-tabs-section,
 .prog-panel,
 .book-path {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .home-focus-grid,
@@ -3119,8 +3131,8 @@ a.course-tag:hover {
 
 @media (max-width: 900px) {
     .book-path {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -3128,14 +3140,190 @@ a.course-tag:hover {
     .about-section,
     .home-focus,
     .home-page-links {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .flow-section,
     .stage-section {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Restore a small body gutter below page heroes */
+.flow-section,
+.stage-section,
+.lecture-filter-section,
+.lecture-categories {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* Program section rhythm */
+.prog-panel .sub-detail > .prog-section,
+.prog-panel .sub-detail > .course-info,
+.prog-panel > .prog-inner > .prog-section,
+.prog-panel > .prog-inner > .course-info {
+    margin: 0;
+    padding: 2.15rem 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.prog-panel .sub-detail > .prog-hero + .target-section,
+.prog-panel .prog-summary + .target-section {
+    margin-top: 0;
+}
+
+.prog-panel .course-info {
+    margin-bottom: 0;
+    padding: 2.15rem 0;
+}
+
+.prog-panel .info-table {
+    margin-top: 1rem;
+    border: 2px solid var(--program-accent-border, var(--border-light));
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-surface);
+}
+
+.prog-panel .info-row {
+    display: grid;
+    grid-template-columns: minmax(150px, 24%) 1fr;
+    border-bottom: 2px solid var(--program-accent-border, var(--border-light));
+    background: var(--bg-surface);
+}
+
+.prog-panel .info-row:last-child {
+    border-bottom: none;
+}
+
+.prog-panel .info-label {
+    width: auto;
+    padding: 1rem 1.65rem;
+    border-right: 2px solid var(--program-accent-border, var(--border-light));
+    background: var(--bg-surface);
+}
+
+.prog-panel .info-value {
+    padding: 1rem 1.75rem;
+    background: var(--bg-surface);
+}
+
+/* Program curriculum table layout */
+.prog-panel .prog-section .session-item {
+    display: block;
+    padding: 0;
+    border-left: 2px solid var(--program-accent-border, var(--border-light));
+    border-right: 2px solid var(--program-accent-border, var(--border-light));
+    border-bottom: 2px solid var(--program-accent-border, var(--border-light));
+    background: var(--bg-surface);
+}
+
+.prog-panel .prog-section .session-item:first-of-type {
+    margin-top: 1rem;
+    border-top: 2px solid var(--program-accent-border, var(--border-light));
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.prog-panel .prog-section .session-item:last-of-type {
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+.prog-panel .session-num-wrap,
+.prog-panel .session-tags,
+.prog-panel .session-desc {
+    display: none !important;
+}
+
+.prog-panel .session-body {
+    display: block;
+}
+
+.prog-panel .session-title {
+    display: block;
+    margin: 0;
+    padding: 1rem 1.75rem;
+    background: var(--bg-surface);
+    color: var(--text-body);
+    font-size: 1.16rem;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+@media (max-width: 768px) {
+    .flow-section,
+    .stage-section,
+    .lecture-filter-section,
+    .lecture-categories {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .prog-panel .session-title {
+        padding: 1rem 1.25rem;
+    }
+
+    .prog-panel .info-row {
+        grid-template-columns: 1fr;
+    }
+
+    .prog-panel .info-label {
+        border-right: none;
+        border-bottom: 2px solid var(--program-accent-border, var(--border-light));
+        padding: 1rem 1.25rem 0.55rem;
+    }
+
+.prog-panel .info-value {
+        padding: 0.55rem 1.25rem 1rem;
+    }
+}
+
+/* Home link image zoom keeps the card frame fixed */
+.home-page-link {
+    isolation: isolate;
+}
+
+.home-page-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: inherit;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease, filter 0.2s ease;
+}
+
+.home-page-link-title,
+.home-page-link-desc {
+    position: relative;
+    z-index: 1;
+}
+
+.home-page-link:hover::before,
+.home-page-link:focus-visible::before {
+    transform: scale(1.05);
+}
+
+/* Coaching model stage borders align with page gutters */
+.stage-section {
+    width: auto;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (max-width: 768px) {
+    .stage-section {
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }
 
