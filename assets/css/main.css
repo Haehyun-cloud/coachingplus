@@ -25,6 +25,20 @@
     --border-soft: #e8e8e8;
     --border-muted: #e0e6ec;
     --border-hover: #d6dde6;
+    --hero-purple-gradient: linear-gradient(
+        90deg,
+        rgba(73, 54, 92, 0.99) 0%,
+        rgba(73, 54, 92, 0.94) 34%,
+        rgba(73, 54, 92, 0.62) 66%,
+        rgba(73, 54, 92, 0.2) 100%
+    );
+    --hero-link-gradient: linear-gradient(
+        90deg,
+        rgba(73, 54, 92, 0.98) 0%,
+        rgba(73, 54, 92, 0.9) 42%,
+        rgba(73, 54, 92, 0.6) 72%,
+        rgba(73, 54, 92, 0.24) 100%
+    );
 }
 
 * {
@@ -319,16 +333,19 @@ footer {
     overflow: hidden;
     border-radius: 8px;
     margin: 40px 0 0;
-    min-height: 370px;
-    padding: 84px 24px;
-    text-align: center;
+    aspect-ratio: 2 / 1;
+    min-height: 360px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    text-align: left;
     background-color: var(--brand-standard);
 }
 
 .home-hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('../images/home-hero-temp.svg');
+    background-image: url('../images/index_hero.png');
     background-size: cover;
     background-position: center;
 }
@@ -336,15 +353,17 @@ footer {
 .home-hero-overlay {
     position: absolute;
     inset: 0;
-    background: var(--brand-dark);
-    opacity: 0.65;
+    background: var(--hero-purple-gradient);
+    opacity: 1;
 }
 
 .home-hero-content {
     position: relative;
     z-index: 2;
+    width: 100%;
     max-width: 1040px;
     margin: 0 auto;
+    padding: clamp(2.5rem, 7vw, 5rem) 2rem;
 }
 
 .home-hero h2 {
@@ -586,8 +605,12 @@ footer {
 @media (max-width: 768px) {
     .home-hero {
         min-height: 300px;
-        padding: 64px 18px;
+        padding: 0;
         margin: 40px 0 0;
+    }
+
+    .home-hero-content {
+        padding: 2rem 1.3rem;
     }
 
     .home-hero h2 {
@@ -657,11 +680,19 @@ footer {
 /* Coaching model page */
 .cm-page-header {
     background-color: var(--brand-dark);
-    background-image: linear-gradient(120deg, rgba(51, 36, 68, 0.72), rgba(47, 34, 71, 0.5)), url('../images/model-hero-temp.svg');
+    background-image: var(--hero-purple-gradient), url('../images/coaching-model_hero.png');
     background-size: cover;
     background-position: center;
-    text-align: center;
-    padding: 3rem 2rem;
+    aspect-ratio: 2 / 1;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: clamp(2.5rem, 7vw, 5rem) 2rem;
+    padding-left: max(2rem, calc((100% - 1040px) / 2 + 2rem));
+    padding-right: max(2rem, calc((100% - 1040px) / 2 + 2rem));
     border-radius: 8px;
     margin: 40px 0 0;
 }
@@ -996,7 +1027,7 @@ a.course-tag:hover {
 
 .cta-section {
     background: var(--brand-dark);
-    background-image: linear-gradient(120deg, rgba(51, 36, 68, 0.72), rgba(47, 34, 71, 0.5)), url('../images/apply-hero-temp.svg');
+    background-image: var(--hero-purple-gradient), url('../images/inquiry_hero.png');
     background-size: cover;
     background-position: center;
     padding: 2.8rem 2rem;
@@ -1045,7 +1076,8 @@ a.course-tag:hover {
 
 @media (max-width: 768px) {
     .cm-page-header {
-        padding: 2.4rem 1.3rem;
+        min-height: 280px;
+        padding: 2rem 1.3rem;
     }
 
     .cm-page-header h1 {
@@ -1173,11 +1205,15 @@ a.course-tag:hover {
     position: relative;
     overflow: hidden;
     background-color: var(--brand-dark);
-    background-image: linear-gradient(120deg, rgba(51, 36, 68, 0.72), rgba(47, 34, 71, 0.5)), url('../images/book-hero-temp.svg');
+    background-image: var(--hero-purple-gradient), url('../images/book_hero.png');
     background-size: cover;
     background-position: center;
-    text-align: center;
-    padding: 3rem 2rem;
+    aspect-ratio: 2 / 1;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 0;
     border-radius: 8px;
     margin: 40px 0 0;
 }
@@ -1185,8 +1221,10 @@ a.course-tag:hover {
 .book-hero-content {
     position: relative;
     z-index: 2;
+    width: 100%;
     max-width: 1040px;
     margin: 0 auto;
+    padding: clamp(2.5rem, 7vw, 5rem) 2rem;
 }
 
 .book-hero-content p {
@@ -1310,7 +1348,12 @@ a.course-tag:hover {
 
 @media (max-width: 768px) {
     .book-hero {
-        padding: 2.6rem 1.3rem;
+        min-height: 280px;
+        padding: 0;
+    }
+
+    .book-hero-content {
+        padding: 2rem 1.3rem;
     }
 
     .book-hero-content h1 {
@@ -1630,7 +1673,9 @@ a.course-tag:hover {
     color: var(--home-link-color);
     border: 2px solid var(--home-link-border);
     background-color: var(--home-link-bg);
+    background-image: none;
     background-blend-mode: normal;
+    --home-link-image: none;
 }
 
 .home-page-link-title,
@@ -1647,35 +1692,35 @@ a.course-tag:hover {
     --home-link-bg: #354B47;
     --home-link-color: var(--text-white);
     --home-link-border: #687D78;
-    background-image: url('../images/link-model-temp.svg');
+    --home-link-image: url('../images/coaching-model_hero.png');
 }
 
 .home-page-link-programs {
     --home-link-bg: #3A4A5B;
     --home-link-color: var(--text-white);
     --home-link-border: #6D7D8E;
-    background-image: url('../images/link-programs-temp.svg');
+    --home-link-image: url('../images/program_hero.png');
 }
 
 .home-page-link-lecture {
     --home-link-bg: #46415D;
     --home-link-color: var(--text-white);
     --home-link-border: #79748F;
-    background-image: url('../images/link-lecture-temp.svg');
+    --home-link-image: url('../images/special-lecture_hero.png');
 }
 
 .home-page-link-book {
     --home-link-bg: #5B444C;
     --home-link-color: var(--text-white);
     --home-link-border: #8D7880;
-    background-image: url('../images/link-book-temp.svg');
+    --home-link-image: url('../images/book_hero.png');
 }
 
 .home-page-link-apply {
     --home-link-bg: #493F54;
     --home-link-color: var(--text-white);
     --home-link-border: #7B7085;
-    background-image: url('../images/apply-hero-temp.svg');
+    --home-link-image: url('../images/inquiry_hero.png');
 }
 
 @media (max-width: 768px) {
@@ -1728,11 +1773,19 @@ a.course-tag:hover {
 /* Programs page */
 .pg-header {
             background: var(--brand-dark);
-            background-image: linear-gradient(120deg, rgba(51, 36, 68, 0.72), rgba(47, 34, 71, 0.5)), url('../images/programs-hero-temp.svg');
+            background-image: var(--hero-purple-gradient), url('../images/program_hero.png');
             background-size: cover;
             background-position: center;
-            padding: 3rem 2rem;
-            text-align: center;
+            aspect-ratio: 2 / 1;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: clamp(2.5rem, 7vw, 5rem) 2rem;
+            padding-left: max(2rem, calc((100% - 1040px) / 2 + 2rem));
+            padding-right: max(2rem, calc((100% - 1040px) / 2 + 2rem));
+            text-align: left;
             border-radius: 8px;
             margin: 40px 0 0;
             overflow: hidden;
@@ -2284,7 +2337,8 @@ a.course-tag:hover {
 
         @media (max-width: 768px) {
             .pg-header {
-                padding: 2.6rem 1.3rem;
+                min-height: 280px;
+                padding: 2rem 1.3rem;
             }
 
             .pg-header h1 {
@@ -3295,20 +3349,29 @@ a.course-tag:hover {
 .home-page-link::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: 0 0 0 42%;
     z-index: 0;
-    background-color: inherit;
-    background-image: inherit;
+    background-image: var(--home-link-image);
     background-size: cover;
-    background-position: center;
+    background-position: center right;
     background-repeat: no-repeat;
     transition: transform 0.3s ease, filter 0.2s ease;
+    transform-origin: center;
+}
+
+.home-page-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--hero-link-gradient);
+    pointer-events: none;
 }
 
 .home-page-link-title,
 .home-page-link-desc {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .home-page-link:hover::before,

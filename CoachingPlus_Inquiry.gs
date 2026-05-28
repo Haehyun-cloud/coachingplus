@@ -1,5 +1,10 @@
 const SHEET_NAME  = 'raw';
 const ADMIN_EMAIL = 'discplus2010@naver.com';
+const HEADER = [
+    '문의번호', '문의일시',
+    '성함', '소속/직함', '이메일', '전화번호',
+    '문의 내용'
+];
 
 function doPost(e) {
     try {
@@ -12,11 +17,20 @@ function doPost(e) {
                 .setMimeType(ContentService.MimeType.JSON);
         }
 
+        const name  = String(data.name || '').trim();
+        const org   = String(data.org || '').trim();
         const email = String(data.email || '').trim();
-        const tel   = String(data.tel || '').replace(/\D/g, '');
+        const tel   = String(data.tel || '').trim();
+        const memo  = String(data.memo || '').trim();
 
         const emailOk = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+$/.test(email);
-        const telOk = tel.length >= 8;
+        const telOk = /^[0-9-]+$/.test(tel) && tel.replace(/\D/g, '').length >= 8;
+
+        if (!name || !memo) {
+            return ContentService
+                .createTextOutput(JSON.stringify({ result: 'invalid_required' }))
+                .setMimeType(ContentService.MimeType.JSON);
+        }
 
         if (!emailOk || !telOk) {
             return ContentService
@@ -28,67 +42,42 @@ function doPost(e) {
         const sheet = ss.getSheetByName(SHEET_NAME)
                      || ss.insertSheet(SHEET_NAME);
 
-        // 헤더가 없으면 생성
-        if (sheet.getLastRow() === 0) {
-            sheet.appendRow([
-                '고유번호', '신청일시',
-                '성함', '소속/직함', '이메일', '전화번호',
-                '유형', '선택항목', '코칭상세', '메모', '상태'
-            ]);
-            sheet.setFrozenRows(1);
-        }
+        ensureHeader_(sheet);
 
-        // 고유번호 생성: CP-YYYYMMDD-NNN
+        // 문의번호 생성: CPQ-YYYYMMDD-NNN
         const today   = Utilities.formatDate(
                             new Date(), 'Asia/Seoul', 'yyyyMMdd');
         const lastRow = sheet.getLastRow();
         const seq     = String(lastRow).padStart(3, '0');
-        const uid     = 'CP-' + today + '-' + seq;
+        const uid     = 'CPQ-' + today + '-' + seq;
 
-        // 신청일시
+        // 문의일시
         const timestamp = Utilities.formatDate(
                             new Date(), 'Asia/Seoul', 'yyyy-MM-dd HH:mm:ss');
-
-        // 유형 한글 변환
-        const typeMap = {
-            program:  '정규 프로그램',
-            lecture:  '특강',
-            coaching: '개인 코칭·상담'
-        };
-        const typeKr = typeMap[data.type] || data.type;
 
         // 시트에 기록
         sheet.appendRow([
             uid, timestamp,
-            data.name    || '',
-            data.org     || '',
+            name,
+            org,
             email,
             tel,
-            typeKr,
-            data.selection      || '',
-            data.coachingDetail || '',
-            data.memo           || '',
-            '미확인'   // 상태 초기값 (수동 관리)
+            memo
         ]);
 
         // 관리자 이메일 발송
-        const subject = `[코칭플러스 문의] ${uid} — ${data.name}`;
+        const subject = `[코칭플러스 문의] ${uid} — ${name}`;
         const body = [
-            `■ 신청번호: ${uid}`,
-            `■ 신청일시: ${timestamp}`,
+            `■ 문의번호: ${uid}`,
+            `■ 문의일시: ${timestamp}`,
             ``,
-            `■ 성함: ${data.name}`,
-            `■ 소속: ${data.org || '—'}`,
+            `■ 성함: ${name}`,
+            `■ 소속: ${org || '—'}`,
             `■ 이메일: ${email}`,
             `■ 전화번호: ${tel}`,
             ``,
-            `■ 유형: ${typeKr}`,
-            `■ 선택항목: ${data.selection || '—'}`,
-            data.coachingDetail
-                ? `■ 코칭 상세: ${data.coachingDetail}`
-                : '',
-            ``,
-            `■ 추가 메모: ${data.memo || '—'}`,
+            `■ 문의 내용:`,
+            memo,
             ``,
             `─────────────────────`,
             `스프레드시트에서 확인: ${ss.getUrl()}`
@@ -104,5 +93,27 @@ function doPost(e) {
         return ContentService
             .createTextOutput(JSON.stringify({ result: 'error', msg: err.message }))
             .setMimeType(ContentService.MimeType.JSON);
+    }
+}
+
+function ensureHeader_(sheet) {
+    if (sheet.getLastRow() === 0) {
+        sheet.appendRow(HEADER);
+        sheet.setFrozenRows(1);
+        return;
+    }
+
+    const firstRow = sheet.getRange(1, 1, 1, HEADER.length).getValues()[0];
+    const hasInquiryHeader = firstRow[0] === HEADER[0] && firstRow[1] === HEADER[1];
+
+    if (!hasInquiryHeader) {
+        sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), HEADER.length)).clearContent();
+        sheet.getRange(1, 1, 1, HEADER.length).setValues([HEADER]);
+        sheet.setFrozenRows(1);
+    }
+
+    const extraColumns = sheet.getMaxColumns() - HEADER.length;
+    if (extraColumns > 0) {
+        sheet.deleteColumns(HEADER.length + 1, extraColumns);
     }
 }

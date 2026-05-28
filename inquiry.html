@@ -11,24 +11,25 @@
         /* 히어로 */
         .inquiry-hero {
             background: var(--brand-dark);
-            background-image: linear-gradient(
-                120deg,
-                rgba(51, 36, 68, 0.72),
-                rgba(47, 34, 71, 0.5)
-            ), url('./assets/images/apply-hero-temp.svg');
+            background-image: var(--hero-purple-gradient), url('./assets/images/inquiry_hero.png');
             background-size: cover;
             background-position: center;
             border-radius: 8px;
             margin: 40px 0 0;
-            text-align: center;
+            text-align: left;
             position: relative;
             overflow: hidden;
+            aspect-ratio: 2 / 1;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
         }
 
         .inquiry-hero-inner {
+            width: 100%;
             max-width: 1040px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: clamp(2.5rem, 7vw, 5rem) 2rem;
             position: relative;
             z-index: 1;
         }
@@ -207,6 +208,14 @@
 
             .inquiry-hero-sub {
                 font-size: 1.05rem;
+            }
+
+            .inquiry-hero {
+                min-height: 280px;
+            }
+
+            .inquiry-hero-inner {
+                padding: 2rem 1.3rem;
             }
 
             .inquiry-section {
