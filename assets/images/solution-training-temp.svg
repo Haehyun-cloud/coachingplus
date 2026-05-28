@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+  <rect width="800" height="500" fill="none"/>
+  <g fill="#ffffff" fill-opacity="0.12">
+    <rect x="92" y="120" width="280" height="188" rx="18"/>
+    <rect x="428" y="94" width="270" height="240" rx="18"/>
+  </g>
+  <g fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.58">
+    <path d="M142 172 H312"/>
+    <path d="M142 222 H278"/>
+    <path d="M142 272 H326"/>
+    <path d="M488 162 H636"/>
+    <path d="M488 214 H612"/>
+    <path d="M488 266 H652"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.55">
+    <circle cx="118" cy="172" r="10"/>
+    <circle cx="118" cy="222" r="10"/>
+    <circle cx="118" cy="272" r="10"/>
+    <circle cx="464" cy="162" r="10"/>
+    <circle cx="464" cy="214" r="10"/>
+    <circle cx="464" cy="266" r="10"/>
+  </g>
+  <g fill="none" stroke="#d7fff3" stroke-opacity="0.4" stroke-width="5" stroke-linecap="round">
+    <path d="M178 364 C256 326 334 326 412 364 S568 402 646 364"/>
+    <path d="M206 396 C284 358 350 358 426 396"/>
+  </g>
+</svg>

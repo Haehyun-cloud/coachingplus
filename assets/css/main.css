@@ -351,7 +351,7 @@ footer {
     font-size: 50px;
     font-weight: 700;
     color: var(--text-white);
-    margin-bottom: 20px;
+    margin-bottom: 34px;
     line-height: 1.18;
 }
 
@@ -360,6 +360,11 @@ footer {
     font-size: 25px;
     font-weight: 700;
     line-height: 1.5;
+}
+
+.home-hero p:last-child {
+    font-weight: 400;
+    font-style: italic;
 }
 
 .home-focus {
@@ -991,7 +996,7 @@ a.course-tag:hover {
 
 .cta-section {
     background: var(--brand-dark);
-    background-image: linear-gradient(120deg, rgba(51, 36, 68, 0.72), rgba(47, 34, 71, 0.5)), url('../images/model-hero-temp.svg');
+    background-image: linear-gradient(120deg, rgba(51, 36, 68, 0.72), rgba(47, 34, 71, 0.5)), url('../images/apply-hero-temp.svg');
     background-size: cover;
     background-position: center;
     padding: 2.8rem 2rem;
