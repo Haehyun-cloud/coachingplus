@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>코칭플러스 - 심리 기반 코칭</title>
-    <meta name="description" content="간호사를 위한 구조적 코칭을 제공합니다.">
+    <title>코칭플러스 | 간호 리더십·코칭·DISCplus 전문 교육</title>
+    <meta name="description" content="코칭플러스는 간호 리더와 조직을 위한 심리 기반 코칭·교육 전문 기관입니다. DISCplus 성격 도구, 리더십 트레이닝, 1:1 개인 코칭으로 현장의 변화를 함께 설계합니다.">
+    <meta name="keywords" content="코칭플러스, 간호 리더십, DISC, 간호사 교육, 리더십 특강, 개인코칭, 수간호사 교육, 조직문화">
     <meta name="theme-color" content="#3e2c50">
+    <link rel="icon" type="image/png" href="./assets/images/logo-favicon.png">
     <link rel="stylesheet" href="./assets/css/main.css">
     <style>
         .about-section--solutions {
@@ -24,20 +26,44 @@
             min-height: 214px;
             overflow: hidden;
             background: var(--solution-bg);
-            border: 2px solid var(--solution-border);
+            border: none;
             border-radius: 10px;
             color: var(--text-white);
+            isolation: isolate;
         }
 
         .solution-card::before {
             content: '';
             position: absolute;
             inset: 0;
+            z-index: 0;
             background-image: var(--solution-image);
             background-size: cover;
             background-position: center;
-            filter: saturate(1.03) contrast(0.98);
+            filter: saturate(0.96) brightness(0.92) contrast(1.04);
+            opacity: 1;
             transition: transform 0.3s ease;
+        }
+
+        .solution-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(
+                135deg,
+                rgba(var(--solution-rgb), 0.96) 0%,
+                rgba(var(--solution-rgb), 0.96) 20%,
+                rgba(var(--solution-rgb), 0.66) 54%,
+                rgba(var(--solution-rgb), 0.36) 100%
+            ),
+            linear-gradient(
+                0deg,
+                rgba(var(--solution-rgb), 0.34) 0%,
+                rgba(var(--solution-rgb), 0.12) 48%,
+                rgba(var(--solution-rgb), 0.22) 100%
+            );
+            pointer-events: none;
         }
 
         .solution-card:hover::before,
@@ -46,45 +72,51 @@
         }
 
         .solution-card--training {
-            --solution-bg: #354B47;
-            --solution-border: #687D78;
-            --solution-image: url('./assets/images/solution-training-temp.svg');
+            --solution-bg: var(--plum-deep);
+            --solution-border: var(--plum-core);
+            --solution-rgb: 104, 24, 112;
+            --solution-image: url('./assets/images/교육 · 트레이닝.png');
         }
 
         .solution-card--advisory {
-            --solution-bg: #3A4A5B;
-            --solution-border: #6D7D8E;
-            --solution-image: url('./assets/images/solution-advisory-temp.svg');
+            --solution-bg: var(--neutral-deep);
+            --solution-border: var(--neutral-core);
+            --solution-rgb: 80, 28, 80;
+            --solution-image: url('./assets/images/자문.png');
         }
 
         .solution-card--coaching {
-            --solution-bg: #46415D;
-            --solution-border: #79748F;
-            --solution-image: url('./assets/images/solution-coaching-temp.svg');
+            --solution-bg: var(--drose-deep);
+            --solution-border: var(--drose-core);
+            --solution-rgb: 128, 24, 80;
+            --solution-image: url('./assets/images/개인 코칭.png');
         }
 
         .solution-content {
             position: relative;
-            z-index: 1;
-            min-height: 214px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 1.45rem;
+            z-index: 2;
+            height: 214px;
+            display: grid;
+            grid-template-rows: 45% 1fr;
+            padding: 1rem 0.3rem 1rem 0.5rem;
+            row-gap: 12px;
         }
 
         .solution-title {
-            font-size: 1.42rem;
+            font-size: 1.62rem;
             font-weight: 700;
             color: var(--text-white);
             line-height: 1.35;
-            margin-bottom: 10px;
+            align-self: end;
+            padding-left: 1.2rem;
         }
 
         .solution-desc {
             font-size: 1.08rem;
             color: rgba(255, 255, 255, 0.92);
             line-height: 1.75;
+            align-self: start;
+            padding-left: 0.3rem;
         }
 
         @media (max-width: 768px) {
@@ -125,10 +157,11 @@
             <div class="home-hero-bg"></div>
             <div class="home-hero-overlay"></div>
             <div class="home-hero-content">
-                <br>
-                <h2>코칭플러스</h2>
-                <p>성장의 관점을 함께 보다</p>
-                <p>Sharing Growth Mindset</p>
+                <div class="home-hero-main">
+                    <h2>코칭플러스</h2>
+                    <p>성장의 관점을 함께 보다</p>
+                    <p>Sharing Growth Mindset</p>
+                </div>
             </div>
         </section>
 
@@ -176,7 +209,7 @@
                             <div class="solution-title">개인 코칭</div>
                             <p class="solution-desc">
                                 목표·성장·전환기를 함께하는
-                                1:1 코칭 세션 (온·오프라인)
+                                1:1 코칭 세션
                             </p>
                         </div>
                     </div>
@@ -191,12 +224,11 @@
                     <div class="focus-card-bg bg-perspectives"></div>
                     <div class="focus-card-overlay"></div>
                     <div class="focus-card-content">
-                        <div class="focus-card-left">
+                        <div class="focus-card-head">
                             <h3>관점</h3>
-                            <p>Perspectives</p>
+                            <span class="focus-card-en">Perspectives</span>
                         </div>
-                        <div class="focus-card-divider"></div>
-                        <p class="focus-card-right">사람과 조직을 바라보는<br>다양한 시각을 제공합니다</p>
+                        <p class="focus-card-right">사람과 조직을 바라보는 다양한 시각을 제공합니다</p>
                     </div>
                 </article>
 
@@ -204,12 +236,11 @@
                     <div class="focus-card-bg bg-process"></div>
                     <div class="focus-card-overlay"></div>
                     <div class="focus-card-content">
-                        <div class="focus-card-left">
+                        <div class="focus-card-head">
                             <h3>프로세스</h3>
-                            <p>Process</p>
+                            <span class="focus-card-en">Process</span>
                         </div>
-                        <div class="focus-card-divider"></div>
-                        <p class="focus-card-right">개인의 변화와 조직 시스템의<br>상호작용을 이해합니다</p>
+                        <p class="focus-card-right">개인의 변화와 조직 시스템의 상호작용을 이해합니다</p>
                     </div>
                 </article>
 
@@ -217,12 +248,11 @@
                     <div class="focus-card-bg bg-concept"></div>
                     <div class="focus-card-overlay"></div>
                     <div class="focus-card-content">
-                        <div class="focus-card-left">
+                        <div class="focus-card-head">
                             <h3>개념 &amp; 이론</h3>
-                            <p>Concept &amp; Theory</p>
+                            <span class="focus-card-en">Concept &amp; Theory</span>
                         </div>
-                        <div class="focus-card-divider"></div>
-                        <p class="focus-card-right">근거 기반의 검증된<br>이론과 개념을 적용합니다</p>
+                        <p class="focus-card-right">근거 기반의 검증된 이론과 개념을 적용합니다</p>
                     </div>
                 </article>
 
@@ -230,12 +260,11 @@
                     <div class="focus-card-bg bg-intervention"></div>
                     <div class="focus-card-overlay"></div>
                     <div class="focus-card-content">
-                        <div class="focus-card-left">
+                        <div class="focus-card-head">
                             <h3>개입</h3>
-                            <p>Intervention</p>
+                            <span class="focus-card-en">Intervention</span>
                         </div>
-                        <div class="focus-card-divider"></div>
-                        <p class="focus-card-right">실질적인 변화를 이끄는<br>도구와 실천법을 활용합니다</p>
+                        <p class="focus-card-right">실질적인 변화를 이끄는 도구와 실천법을 활용합니다</p>
                     </div>
                 </article>
             </div>
@@ -248,8 +277,11 @@
                 <div class="coach-list">
                     <div class="coach-card">
                         <div class="coach-img coach-img--jung" role="img" aria-label="정일진 프로필 사진"></div>
-                        <div>
-                            <div class="coach-name">정일진</div>
+                        <div class="coach-body">
+                            <div class="coach-head">
+                                <div class="coach-name">정일진</div>
+                                <a class="coach-blog-btn" href="https://blog.naver.com/spichpro" target="_blank" rel="noopener">blog</a>
+                            </div>
                             <div class="coach-role">코칭플러스 대표 코치 · 한국코치협회 인증코치(KPC, 평생회원) · 한국코칭심리학회 회원</div>
                             <p class="coach-bio">
                                 언어학과 코칭 심리를 전공하고 20여 년간 개인과 조직, 리더와 구성원의 성장과 발달을 지원하는 코치로 활동하고 있습니다.
@@ -260,8 +292,11 @@
                     </div>
                     <div class="coach-card">
                         <div class="coach-img coach-img--park" role="img" aria-label="박민아 프로필 사진"></div>
-                        <div>
-                            <div class="coach-name">박민아</div>
+                        <div class="coach-body">
+                            <div class="coach-head">
+                                <div class="coach-name">박민아</div>
+                                <a class="coach-blog-btn" href="https://blog.naver.com/discplus2010" target="_blank" rel="noopener">blog</a>
+                            </div>
                             <div class="coach-role">코칭플러스 대표 코치 · (사)한국코치협회 인증코치(KPC, 평생회원)</div>
                             <p class="coach-bio">
                                 간호 리더와 차세대 리더를 위한 코칭 및 교육 프로그램을 개발·진행하고 있습니다.
@@ -305,13 +340,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>문의</h3>
-                <p>이메일: discplus2010@naver.com</p>
-            </div>
-
-            <div class="footer-section">
-                <h3>사업자정보</h3>
-                <p>사업자등록번호: 215-17-91815<br>대표: 정일진<br>통신판매업 신고: 2024-서울관악-0184</p>
+                <p>대표자: 정일진<br>사업자등록번호: 215-17-91815<br>통신판매업 신고: 2024-서울관악-0184<br>이메일: discplus2010@naver.com</p>
             </div>
         </div>
         <div class="footer-bottom">

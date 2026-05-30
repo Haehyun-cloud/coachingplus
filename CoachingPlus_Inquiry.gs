@@ -66,9 +66,8 @@ function doPost(e) {
         ]);
 
         // 관리자 이메일 발송
-        const subject = `[코칭플러스 문의] ${uid} — ${name}`;
+        const subject = `📌[코칭플러스 문의] ${name}`;
         const body = [
-            `■ 문의번호: ${uid}`,
             `■ 문의일시: ${timestamp}`,
             ``,
             `■ 성함: ${name}`,

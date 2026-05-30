@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>문의 - 코칭플러스</title>
-    <meta name="description" content="코칭플러스 프로그램·특강·코칭 문의 페이지입니다.">
-    <meta name="theme-color" content="#59436f">
+    <title>문의 | 코칭플러스 - 프로그램·특강·코칭 신청</title>
+    <meta name="description" content="코칭플러스 프로그램, 특강, 개인 코칭 문의를 남겨주세요. 간호 리더십 교육과 DISCplus 과정, 개인코칭 문의을 접수합니다.">
+    <meta name="keywords" content="코칭플러스 문의, 코칭 신청, 리더십 교육 신청, DISCplus 신청, 간호 교육 문의">
+    <meta name="theme-color" content="#481850">
+    <link rel="icon" type="image/png" href="./assets/images/logo-favicon.png">
     <link rel="stylesheet" href="./assets/css/main.css">
     <style>
         /* 히어로 */
         .inquiry-hero {
             background: var(--brand-dark);
-            background-image: var(--hero-purple-gradient), url('./assets/images/inquiry_hero.png');
+            background-image: linear-gradient(
+                90deg,
+                rgba(72, 24, 80, 0.9) 0%,
+                rgba(72, 24, 80, 0.9) 20%,
+                rgba(72, 24, 80, 0.56) 62%,
+                rgba(72, 24, 80, 0.3) 100%
+            ), url('./assets/images/inquiry_hero.png');
             background-size: cover;
             background-position: center;
             border-radius: 8px;
-            margin: 40px 0 0;
+            margin: 24px 0 0;
             text-align: left;
             position: relative;
             overflow: hidden;
@@ -35,15 +43,15 @@
         }
 
         .inquiry-hero-title {
-            font-size: 2.7rem;
+            font-size: 58px;
             font-weight: 700;
             color: var(--text-white);
-            line-height: 1.35;
+            line-height: 1.18;
         }
 
         .inquiry-hero-sub {
-            margin-top: 6px;
-            font-size: 1.25rem;
+            margin-top: 14px;
+            font-size: 32px;
             color: var(--text-white);
             letter-spacing: 0.04em;
         }
@@ -85,7 +93,7 @@
         }
 
         .req {
-            color: #c93667;
+            color: var(--brand-magenta);
         }
 
         .field input,
@@ -104,7 +112,7 @@
 
         .field input:focus,
         .field textarea:focus {
-            border-color: var(--brand-standard);
+            border-color: var(--violet-core);
         }
 
         .field.field-error input::placeholder,
@@ -136,7 +144,7 @@
             font-weight: 700;
             cursor: pointer;
             border: none;
-            background: var(--brand-standard);
+            background: var(--violet-deep);
             color: var(--text-white);
             transition: opacity 0.15s;
             font-family: inherit;
@@ -161,7 +169,7 @@
         .done-title {
             font-size: 1.6rem;
             font-weight: 700;
-            color: var(--brand-standard);
+            color: var(--violet-deep);
             margin-bottom: 10px;
         }
 
@@ -173,7 +181,7 @@
         }
 
         .done-desc a {
-            color: #c93667;
+            color: var(--drose-core);
             text-decoration: none;
             font-weight: 500;
         }
@@ -192,8 +200,8 @@
         }
 
         .btn-home:hover {
-            border-color: var(--brand-standard);
-            color: var(--brand-standard);
+            border-color: var(--violet-core);
+            color: var(--violet-deep);
         }
 
         /* 반응형 */
@@ -203,11 +211,11 @@
             }
 
             .inquiry-hero-title {
-                font-size: 2rem;
+                font-size: 42px;
             }
 
             .inquiry-hero-sub {
-                font-size: 1.05rem;
+                font-size: 24px;
             }
 
             .inquiry-hero {
@@ -260,7 +268,7 @@
         <section class="inquiry-section">
             <div class="inquiry-inner">
                 <p class="inquiry-desc">
-                    프로그램·특강·개인 코칭 신청 및 커스터마이징 상담은
+                    프로그램·특강·개인 코칭 상담은
                     아래 양식으로 접수해 주세요.<br>
                     1~2 영업일 내에 연락드립니다.
                 </p>
@@ -329,13 +337,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>문의</h3>
-                <p>이메일: discplus2010@naver.com</p>
-            </div>
-
-            <div class="footer-section">
-                <h3>사업자정보</h3>
-                <p>사업자등록번호: 215-17-91815<br>대표: 정일진<br>통신판매업 신고: 2024-서울관악-0184</p>
+                <p>대표자: 정일진<br>사업자등록번호: 215-17-91815<br>통신판매업 신고: 2024-서울관악-0184<br>이메일: discplus2010@naver.com</p>
             </div>
         </div>
         <div class="footer-bottom">
